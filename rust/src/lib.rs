@@ -1,16 +1,17 @@
-// This project contains the source for all Blind 50 problems.
+// This project contains the source for all my leetcode solutions and practice problems.
 //
 // Authored by Spencer C. Imbleau
-pub mod best_time_to_buy_and_sell_stock;
-pub mod contains_duplicate;
-pub mod longest_substring_without_repeating_characters;
-pub mod maximum_subarray;
-pub mod two_sum;
-pub mod valid_anagram;
-pub mod valid_parentheses;
-pub mod product_of_array_except_self;
 
-// Template for a  solution
+pub mod _121_best_time_to_buy_and_sell_stock;
+pub mod _1_two_sum;
+pub mod _20_valid_parentheses;
+pub mod _217_contains_duplicate;
+pub mod _238_product_of_array_except_self;
+pub mod _242_valid_anagram;
+pub mod _3_longest_substring_without_repeating_characters;
+pub mod _53_maximum_subarray;
+
+// Template for a solution
 pub fn template() {}
 #[cfg(test)]
 #[test]

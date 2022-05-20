@@ -1,5 +1,6 @@
 [package]
-name = "blind50"
+name = "leetcode"
+author = "Spencer C. Imbleau"
 version = "0.1.0"
 edition = "2021"
 

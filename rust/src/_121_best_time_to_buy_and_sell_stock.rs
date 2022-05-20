@@ -1,5 +1,3 @@
-// O(n)
-
 pub fn max_profit(prices: Vec<i32>) -> i32 {
     let mut max_profit = 0;
     let mut current_profit = 0;
