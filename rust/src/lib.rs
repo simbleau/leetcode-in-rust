@@ -10,6 +10,7 @@ pub mod _238_product_of_array_except_self;
 pub mod _242_valid_anagram;
 pub mod _3_longest_substring_without_repeating_characters;
 pub mod _53_maximum_subarray;
+pub mod _1647_minimum_deletions_to_make_character_frequencies_unique;
 
 // Template for a solution
 pub fn template() {}
