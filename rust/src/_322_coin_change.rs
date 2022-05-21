@@ -7,7 +7,6 @@ pub fn coin_change(coins: Vec<i32>, amount: i32) -> i32 {
 
     for coin in coins {
         for i in 1..min_coins.len() {
-            println!("Checking if {coin} can go into {i}");
             if coin > i as i32 {
                 // Coin doesn't go into this amount
                 continue;
