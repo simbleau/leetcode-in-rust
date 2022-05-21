@@ -4,6 +4,7 @@
 // Authored by Spencer C. Imbleau
 
 pub mod _121_best_time_to_buy_and_sell_stock;
+pub mod _1304_find_n_unique_integers_sum_up_to_zero;
 pub mod _1647_minimum_deletions_to_make_character_frequencies_unique;
 pub mod _1_two_sum;
 pub mod _20_valid_parentheses;
