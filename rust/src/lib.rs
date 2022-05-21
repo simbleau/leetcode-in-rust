@@ -14,6 +14,7 @@ pub mod _242_valid_anagram;
 pub mod _322_coin_change;
 pub mod _3_longest_substring_without_repeating_characters;
 pub mod _53_maximum_subarray;
+pub mod _253_meeting_rooms_ii;
 
 // Template for a solution
 pub fn template() {}
