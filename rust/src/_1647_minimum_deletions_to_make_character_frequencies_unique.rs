@@ -34,9 +34,11 @@ pub fn min_deletions(s: String) -> i32 {
             return removals;
         }
 
+        // Removals are counted when non-unique frequencies are encountered
         // Safety: not empty
         let top_2nd_element = pq.peek().unwrap();
         if top_element == *top_2nd_element {
+            // > 1 because one element left will have a freq of 1
             if top_element > 1 {
                 pq.push(top_element - 1);
             }
