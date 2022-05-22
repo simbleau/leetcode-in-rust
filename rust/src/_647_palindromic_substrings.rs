@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::HashSet;
 
 pub fn count_substrings(s: String) -> i32 {
     if s.len() <= 0 {
@@ -6,12 +6,12 @@ pub fn count_substrings(s: String) -> i32 {
     }
 
     let mut ans = 0;
-    let mut palindromes: HashMap<&str, bool> = HashMap::new();
+    let mut palindromes: HashSet<&str> = HashSet::new();
 
     // Base case 1: single letter substrings
     // e.g. 'a', 'b'
     for i in 0..s.len() {
-        palindromes.insert(&s[i..i + 1], true);
+        palindromes.insert(&s[i..i + 1]);
         ans += 1;
     }
 
@@ -20,11 +20,10 @@ pub fn count_substrings(s: String) -> i32 {
     for i in 0..s.len() - 1 {
         let letter_1 = s.chars().nth(i).unwrap();
         let letter_2 = s.chars().nth(i + 1).unwrap();
-        let chars_eq = letter_1 == letter_2;
-        if chars_eq {
+        if letter_1 == letter_2 {
             ans += 1;
+            palindromes.insert(&s[i..i + 2]);
         }
-        palindromes.insert(&s[i..i + 2], chars_eq);
     }
 
     // All other cases: substrings of length 3 to s.len()
@@ -35,13 +34,10 @@ pub fn count_substrings(s: String) -> i32 {
         while j < s.len() {
             let first_char = s.chars().nth(i).unwrap();
             let last_char = s.chars().nth(j).unwrap();
-            let substructure_result = palindromes.get(&s[i + 1..j]).unwrap();
-            let is_palindrome =
-                *substructure_result && (first_char == last_char);
-            if is_palindrome {
+            if palindromes.contains(&s[i + 1..j]) && (first_char == last_char) {
                 ans += 1;
+                palindromes.insert(&s[i..j + 1]);
             }
-            palindromes.insert(&s[i..j + 1], is_palindrome);
 
             i += 1;
             j += 1;
@@ -68,4 +64,14 @@ fn test_2() {
 fn test_3() {
     // "f", "d", "s", "k", "l", "f"
     assert_eq!(count_substrings("fdsklf".to_string()), 6);
+}
+
+#[test]
+fn test_4() {
+    assert_eq!(count_substrings("".to_string()), 0);
+}
+
+#[test]
+fn test_5() {
+    assert_eq!(count_substrings("aaaaa".to_string()), 15);
 }
