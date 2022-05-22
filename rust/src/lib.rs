@@ -16,6 +16,7 @@ pub mod _253_meeting_rooms_ii;
 pub mod _322_coin_change;
 pub mod _3_longest_substring_without_repeating_characters;
 pub mod _53_maximum_subarray;
+pub mod _1239_maximum_length_of_a_concatenated_string_with_unique_characters;
 
 // Template for a solution
 pub fn template() {}
