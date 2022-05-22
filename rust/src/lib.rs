@@ -19,6 +19,7 @@ pub mod _3_longest_substring_without_repeating_characters;
 pub mod _53_maximum_subarray;
 pub mod _55_jump_game;
 pub mod _647_palindromic_substrings;
+pub mod _3_longest_palindromic_substring;
 
 // Template for a solution
 pub fn template() {}
