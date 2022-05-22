@@ -3,6 +3,7 @@
 //
 // Authored by Spencer C. Imbleau
 
+pub mod _11_container_with_most_water;
 pub mod _121_best_time_to_buy_and_sell_stock;
 pub mod _1239_maximum_length_of_a_concatenated_string_with_unique_characters;
 pub mod _1304_find_n_unique_integers_sum_up_to_zero;
