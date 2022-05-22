@@ -1,6 +1,4 @@
 pub fn can_jump(nums: Vec<i32>) -> bool {
-    assert!(nums.is_empty() == false);
-
     let goal = nums.len() - 1;
 
     // Memoization
