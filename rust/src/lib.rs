@@ -22,6 +22,7 @@ pub mod _53_maximum_subarray;
 pub mod _55_jump_game;
 pub mod _5_longest_substring_without_repeating_characters;
 pub mod _647_palindromic_substrings;
+pub mod _237_delete_node_in_a_linked_list;
 
 // Template for a solution
 pub fn template() {}
