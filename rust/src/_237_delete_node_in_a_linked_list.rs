@@ -53,21 +53,29 @@ pub fn delete_node(
 #[cfg(test)]
 #[test]
 fn test_1() {
-    let mut linked_list = ListNode::new(1);
-    linked_list.next = Some(Box::new(ListNode::new(2)));
-    linked_list.next = Some(Box::new(ListNode::new(3)));
-    linked_list.next = Some(Box::new(ListNode::new(4)));
-    linked_list.next = Some(Box::new(ListNode::new(5)));
+    let mut head = ListNode::new(1);
+    let mut i1 = ListNode::new(2);
+    let mut i2 = ListNode::new(3);
+    let mut i3 = ListNode::new(4);
+    let i4 = ListNode::new(5);
+    i3.next = Some(Box::new(i4));
+    i2.next = Some(Box::new(i3));
+    i1.next = Some(Box::new(i2));
+    head.next = Some(Box::new(i1));
 
-    let mut after = ListNode::new(1);
-    after.next = Some(Box::new(ListNode::new(2)));
-    // after.next = Some(Box::new(ListNode::new(3))); <-- Deleted
-    after.next = Some(Box::new(ListNode::new(4)));
-    after.next = Some(Box::new(ListNode::new(5)));
+    let mut after_head = ListNode::new(1);
+    let mut i1 = ListNode::new(2);
+    //let mut i2 = ListNode::new(3); <-- Deleted
+    let mut i3 = ListNode::new(4);
+    let i4 = ListNode::new(5);
+    i3.next = Some(Box::new(i4));
+    // i2.next = Some(Box::new(i3)); <-- Deleted
+    i1.next = Some(Box::new(i3));
+    after_head.next = Some(Box::new(i1));
 
     assert_eq!(
-        delete_node(Some(Box::new(linked_list)), 2),
-        Some(Box::new(after))
+        delete_node(Some(Box::new(head)), 2),
+        Some(Box::new(after_head))
     );
 }
 
