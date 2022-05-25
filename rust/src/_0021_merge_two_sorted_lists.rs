@@ -89,7 +89,7 @@ pub fn merge_two_lists(
     };
 
     match merged.len() {
-        0 => return None,
+        0 => None,
         _ => {
             let mut tail = ListNode::new(merged[merged.len() - 1].val);
             for i in (0..merged.len() - 1).rev() {
