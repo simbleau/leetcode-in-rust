@@ -36,25 +36,33 @@ pub fn remove_nth_from_end(
             cursor = node;
         }
     }
+    let target = count - n;
+
+    // Handles special case where the target is the first element
+    if target == 0 {
+        let head = Rc::try_unwrap(head).unwrap().into_inner();
+        return head.next;
+    }
 
     // Remove nth item from the back, v2
-    let target = count - n;
     {
         // Scoped memory
         let cursor = head.clone();
-        let mut cursor = cursor.borrow_mut();
+        let mut cursor: &mut Box<ListNode> = &mut cursor.borrow_mut();
 
-        let mut i = 0;
-        while let Some(node) = cursor.next.as_mut() {
-            if i + 1 == target {
-                match node.next.take() {
-                    Some(child) => node.next = child.next,
-                    None => node.next = None,
-                }
-                break;
-            }
+        let mut i = 1;
+        while i < target {
+            cursor = match &mut cursor.next {
+                Some(n) => n,
+                None => panic!(),
+            };
             i += 1;
         }
+
+        match cursor.next.take() {
+            Some(c) => cursor.next = c.next,
+            None => cursor.next = None,
+        };
     }
 
     let head = Rc::try_unwrap(head).unwrap().into_inner();
