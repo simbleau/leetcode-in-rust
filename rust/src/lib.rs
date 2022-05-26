@@ -11,6 +11,7 @@ pub mod _0015_3sum;
 pub mod _0019_remove_nth_node_from_end_of_list;
 pub mod _0020_valid_parentheses;
 pub mod _0021_merge_two_sorted_lists;
+pub mod _0033_search_in_rotated_sorted_array;
 pub mod _0053_maximum_subarray;
 pub mod _0055_jump_game;
 pub mod _0070_climbing_stairs;
