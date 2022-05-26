@@ -25,7 +25,7 @@ pub mod _1239_maximum_length_of_a_concatenated_string_with_unique_characters;
 pub mod _1304_find_n_unique_integers_sum_up_to_zero;
 pub mod _1448_count_good_nodes_in_binary_tree;
 pub mod _1647_minimum_deletions_to_make_character_frequencies_unique;
-pub mod _0009_merge_k_sorted_lists;
+pub mod _0070_climbing_stairs;
 
 // Template for a solution
 pub fn template() {}
