@@ -37,3 +37,8 @@ fn test_4() {
 fn test_5() {
     assert_eq!(climb_stairs(5), 8);
 }
+
+#[test]
+fn test_6() {
+    assert_eq!(climb_stairs(6), 13);
+}
