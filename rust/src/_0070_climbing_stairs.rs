@@ -1,15 +1,27 @@
-pub fn climb_from(i: i32, n: i32) -> i32 {
+use std::{cell::RefCell, collections::HashMap, rc::Rc};
+
+pub fn climb_from(
+    i: i32,
+    n: i32,
+    memoization: Rc<RefCell<HashMap<i32, i32>>>,
+) -> i32 {
     if i > n {
         0
     } else if i == n {
         1
+    } else if memoization.as_ref().borrow().contains_key(&i) {
+        return *memoization.as_ref().borrow().get(&i).unwrap();
     } else {
-        climb_from(i + 1, n) + climb_from(i + 2, n)
+        let v1 = climb_from(i + 1, n, memoization.clone());
+        let v2 = climb_from(i + 2, n, memoization.clone());
+        memoization.as_ref().borrow_mut().insert(i, v1 + v2);
+        *memoization.as_ref().borrow().get(&i).unwrap()
     }
 }
 
 pub fn climb_stairs(n: i32) -> i32 {
-    climb_from(0, n)
+    let memoization = Rc::new(RefCell::new(HashMap::new()));
+    climb_from(0, n, memoization)
 }
 
 #[cfg(test)]
