@@ -3,9 +3,11 @@ pub fn number_of_steps(num: i32) -> i32 {
     let mut steps = 0;
     while num > 0 {
         if num % 2 == 0 {
-            num /= 2;
+            // num /= 2;
+            num >>= 1;
         } else {
-            num -= 1;
+            // num -= 1;
+            num &= 0b1111111111111111110
         }
         steps += 1;
     }
