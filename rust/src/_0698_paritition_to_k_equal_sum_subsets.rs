@@ -3,6 +3,7 @@ pub fn backtrack(
     taken_nums: &mut Vec<bool>, // A map of used numbers during this iteration
     target_sum: i32,            // The target sum for a subarray
     k: i32,                     // The amount of subsets
+    index: usize,               // The current index for iteration
     count: i32,                 // Current track of counted subarrays
     cur_sum: i32,               // Current track of sum
 ) -> bool {
@@ -20,11 +21,11 @@ pub fn backtrack(
 
     // A subset is made. Check if others exist, continue.
     if cur_sum == target_sum {
-        return backtrack(nums, taken_nums, target_sum, k, count + 1, 0);
+        return backtrack(nums, taken_nums, target_sum, k, 0, count + 1, 0);
     }
 
     // Try elements not picked already to make combinations
-    for i in 0..n {
+    for i in index..n {
         // Take the number
         if !taken_nums[i] {
             taken_nums[i] = true;
@@ -35,6 +36,7 @@ pub fn backtrack(
                 taken_nums,
                 target_sum,
                 k,
+                i + 1,
                 count,
                 cur_sum + nums[i],
             ) {
@@ -52,18 +54,22 @@ pub fn backtrack(
 }
 
 pub fn can_partition_k_subsets(nums: Vec<i32>, k: i32) -> bool {
-    let total: i32 = nums.iter().sum();
     let n = nums.len();
 
+    let total: i32 = nums.iter().sum();
     if total % k != 0 {
         // Total is not divisible by the amount of subsets requested
         return false;
     }
-
     let target_sum = total / k;
-    let mut taken_nums = vec![false; n];
 
-    backtrack(&nums, &mut taken_nums, target_sum, k, 0, 0)
+    // Sort in reverse for optimization
+    let mut nums = nums.clone();
+    nums.sort();
+    nums.reverse();
+
+    let mut taken_nums = vec![false; n];
+    backtrack(&nums, &mut taken_nums, target_sum, k, 0, 0, 0)
 }
 
 #[cfg(test)]
@@ -92,6 +98,6 @@ fn test_4() {
             ],
             4
         ),
-        false
+        true
     );
 }
