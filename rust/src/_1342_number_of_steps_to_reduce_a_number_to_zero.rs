@@ -7,7 +7,7 @@ pub fn number_of_steps(num: i32) -> i32 {
             num >>= 1;
         } else {
             // num -= 1;
-            num &= 0b1111111111111111110
+            num &= 0b11111111111111111110;
         }
         steps += 1;
     }
