@@ -12,6 +12,7 @@ pub mod _0019_remove_nth_node_from_end_of_list;
 pub mod _0020_valid_parentheses;
 pub mod _0021_merge_two_sorted_lists;
 pub mod _0033_search_in_rotated_sorted_array;
+pub mod _0039_combination_sum;
 pub mod _0053_maximum_subarray;
 pub mod _0055_jump_game;
 pub mod _0070_climbing_stairs;
@@ -26,9 +27,9 @@ pub mod _0371_sumof_two_integers;
 pub mod _0647_palindromic_substrings;
 pub mod _1239_maximum_length_of_a_concatenated_string_with_unique_characters;
 pub mod _1304_find_n_unique_integers_sum_up_to_zero;
+pub mod _1342_number_of_steps_to_reduce_a_number_to_zero;
 pub mod _1448_count_good_nodes_in_binary_tree;
 pub mod _1647_minimum_deletions_to_make_character_frequencies_unique;
-pub mod _0039_combination_sum;
 
 // Template for a solution
 pub fn template() {}
