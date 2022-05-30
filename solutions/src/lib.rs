@@ -13,6 +13,7 @@ pub mod _0020_valid_parentheses;
 pub mod _0021_merge_two_sorted_lists;
 pub mod _0033_search_in_rotated_sorted_array;
 pub mod _0039_combination_sum;
+pub mod _0048_rotate_image;
 pub mod _0053_maximum_subarray;
 pub mod _0055_jump_game;
 pub mod _0070_climbing_stairs;
