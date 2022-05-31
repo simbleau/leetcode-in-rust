@@ -16,6 +16,7 @@ pub mod _0039_combination_sum;
 pub mod _0048_rotate_image;
 pub mod _0049_group_anagrams;
 pub mod _0053_maximum_subarray;
+pub mod _0054_spiral_matrix;
 pub mod _0055_jump_game;
 pub mod _0070_climbing_stairs;
 pub mod _0121_best_time_to_buy_and_sell_stock;
