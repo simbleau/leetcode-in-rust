@@ -7,11 +7,11 @@ pub fn recurse(
     p: i32,
     q: i32,
 ) -> Option<Rc<RefCell<TreeNode>>> {
-    if let Some(v) = root {
+    if let Some(root) = root {
         if let (Some(ref left), Some(ref right)) =
-            (&v.borrow().left, &v.borrow().right)
+            (&root.borrow().left, &root.borrow().right)
         {
-            let node_val = v.borrow().val;
+            let node_val = root.borrow().val;
             //let left_val = left.borrow().val;
             //let right_val = right.borrow().val;
             if p > node_val && q > node_val {
@@ -25,7 +25,7 @@ pub fn recurse(
             }
         }
         // This is the lowest common ancestor
-        return Some(Rc::new(RefCell::new(TreeNode::new(v.borrow().val))));
+        return Some(Rc::new(RefCell::new(TreeNode::new(root.borrow().val))));
     } else {
         return None;
     }
