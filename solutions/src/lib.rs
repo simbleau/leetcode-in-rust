@@ -22,6 +22,7 @@ pub mod _0056_merge_intervals;
 pub mod _0070_climbing_stairs;
 pub mod _0121_best_time_to_buy_and_sell_stock;
 pub mod _0217_contains_duplicate;
+pub mod _0235_lowest_common_ancestor_of_a_binary_search_tree;
 pub mod _0237_delete_node_in_a_linked_list;
 pub mod _0238_product_of_array_except_self;
 pub mod _0242_valid_anagram;
