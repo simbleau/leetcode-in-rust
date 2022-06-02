@@ -19,6 +19,7 @@ pub mod _0053_maximum_subarray;
 pub mod _0054_spiral_matrix;
 pub mod _0055_jump_game;
 pub mod _0056_merge_intervals;
+pub mod _0062_unique_paths;
 pub mod _0070_climbing_stairs;
 pub mod _0100_same_tree;
 pub mod _0121_best_time_to_buy_and_sell_stock;
