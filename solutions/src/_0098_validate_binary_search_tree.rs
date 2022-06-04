@@ -11,7 +11,7 @@ pub fn is_valid_bst(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
     while cursor.is_some() || !stack.is_empty() {
         while let Some(node) = cursor {
             stack.push(Rc::clone(&node));
-            match node.borrow().left.as_ref() {
+            match &node.borrow().left {
                 Some(l) => cursor = Some(l.clone()),
                 None => cursor = None,
             };
