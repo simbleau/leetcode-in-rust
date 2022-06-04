@@ -24,6 +24,7 @@ pub mod _0070_climbing_stairs;
 pub mod _0073_set_matrix_zeroes;
 pub mod _0079_word_search;
 pub mod _0091_decode_ways;
+pub mod _0098_validate_binary_search_tree;
 pub mod _0100_same_tree;
 pub mod _0121_best_time_to_buy_and_sell_stock;
 pub mod _0217_contains_duplicate;
