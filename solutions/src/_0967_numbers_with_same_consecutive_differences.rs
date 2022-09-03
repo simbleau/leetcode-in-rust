@@ -1,49 +1,41 @@
-use std::collections::HashMap;
+fn dfs(results: &mut Vec<i32>, num: i64, min: i64, max: i64, k: i64) {
+    let d1: i64 = (num % 100) / 10;
+    let d2: i64 = num % 10;
 
-fn is_same_consec_diff(
-    mut num: String,
-    memo: &mut HashMap<String, bool>,
-    k: i32,
-) -> bool {
-    let digits = num.len() as i32;
-    let mut chars = num.chars();
-    let d1 = chars.next_back().unwrap().to_digit(10).unwrap() as i32;
-    let d2 = chars.next_back().unwrap().to_digit(10).unwrap() as i32;
-    let result = if digits <= 2 {
-        (d1 - d2).abs() == k
-    } else {
-        num.pop().unwrap();
-        (d1 - d2).abs() == k && is_same_consec_diff(num.clone(), memo, k)
-    };
-    memo.insert(num, result);
-    result
+    let result = (d1 - d2).abs() == k;
+    if num >= min && num <= max && result {
+        if !results.contains(&(num as i32)) {
+            results.push(num as i32);
+        }
+    }
+
+    if d2 >= k {
+        let num = num * 10 + d2 - k;
+        if num <= max {
+            dfs(results, num, min, max, k);
+        }
+    }
+    if d2 + k <= 9 {
+        let num = num * 10 + d2 + k;
+        if num <= max {
+            dfs(results, num, min, max, k);
+        }
+    }
 }
 
 pub fn nums_same_consec_diff(n: i32, k: i32) -> Vec<i32> {
-    let mut memo = HashMap::new();
     let mut nums = vec![];
 
-    let start_inclusive = 10_i32.pow((n - 1) as u32);
-    let end_exclusive = 10_i32.pow(n as u32);
-    for i in start_inclusive..end_exclusive {
-        if is_same_consec_diff(i.to_string(), &mut memo, k) {
-            nums.push(i);
-        }
+    let min = 10_i64.pow((n - 1) as u32);
+    let max = 10_i64.pow(n as u32) - 1;
+    for i in 1..=9 {
+        dfs(&mut nums, i, min, max, k as i64);
     }
 
     nums
 }
 
 #[cfg(test)]
-#[test]
-fn test_recursive() {
-    let mut memo = HashMap::new();
-    assert_eq!(
-        is_same_consec_diff("1313535".to_string(), &mut memo, 2),
-        true
-    );
-}
-
 #[test]
 fn test_1() {
     assert_eq!(nums_same_consec_diff(3, 7), vec![181, 292, 707, 818, 929]);
@@ -55,6 +47,25 @@ fn test_2() {
         nums_same_consec_diff(2, 1),
         vec![
             10, 12, 21, 23, 32, 34, 43, 45, 54, 56, 65, 67, 76, 78, 87, 89, 98
+        ]
+    );
+}
+
+#[test]
+fn test_3() {
+    assert_eq!(
+        nums_same_consec_diff(2, 0),
+        vec![11, 22, 33, 44, 55, 66, 77, 88, 99]
+    );
+}
+
+#[test]
+fn test_4() {
+    assert_eq!(
+        nums_same_consec_diff(9, 0),
+        vec![
+            111111111, 222222222, 333333333, 444444444, 555555555, 666666666,
+            777777777, 888888888, 999999999
         ]
     );
 }
