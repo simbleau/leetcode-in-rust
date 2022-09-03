@@ -4,9 +4,7 @@ fn dfs(results: &mut Vec<i32>, num: i64, min: i64, max: i64, k: i64) {
 
     let result = (d1 - d2).abs() == k;
     if num >= min && num <= max && result {
-        if !results.contains(&(num as i32)) {
-            results.push(num as i32);
-        }
+        results.push(num as i32);
     }
 
     if d2 >= k {
@@ -15,7 +13,7 @@ fn dfs(results: &mut Vec<i32>, num: i64, min: i64, max: i64, k: i64) {
             dfs(results, num, min, max, k);
         }
     }
-    if d2 + k <= 9 {
+    if d2 + k <= 9 && k != 0 {
         let num = num * 10 + d2 + k;
         if num <= max {
             dfs(results, num, min, max, k);
