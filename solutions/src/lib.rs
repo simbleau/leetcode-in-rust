@@ -38,6 +38,7 @@ pub mod _0322_coin_change;
 pub mod _0371_sumof_two_integers;
 pub mod _0647_palindromic_substrings;
 pub mod _0698_paritition_to_k_equal_sum_subsets;
+pub mod _0967_numbers_with_same_consecutive_differences;
 pub mod _1239_maximum_length_of_a_concatenated_string_with_unique_characters;
 pub mod _1304_find_n_unique_integers_sum_up_to_zero;
 pub mod _1342_number_of_steps_to_reduce_a_number_to_zero;
