@@ -28,6 +28,7 @@ pub mod _0094_binary_tree_inorder_traversal;
 pub mod _0098_validate_binary_search_tree;
 pub mod _0100_same_tree;
 pub mod _0102_binary_tree_level_order_traversal;
+pub mod _0104_maximum_depth_of_binary_tree;
 pub mod _0121_best_time_to_buy_and_sell_stock;
 pub mod _0217_contains_duplicate;
 pub mod _0235_lowest_common_ancestor_of_a_binary_search_tree;
